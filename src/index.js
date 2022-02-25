@@ -12,7 +12,7 @@ const client = new ApolloClient({
     uri:'https://selected-magpie-98.hasura.app/v1/graphql',
     headers: {
       'content-type': 'application/json',
-      'x-hasura-admin-secret':'GNU1KmFTMtaE2LIFJGR6mv4h1NUo962bHwyOXV3V3V1fDdSEFrJCed2ssbu8aWGx'
+      'x-hasura-admin-secret': process.env.REACT_APP_HASURA_ADMIN_KEY
     }
   }),
   cache: new InMemoryCache()

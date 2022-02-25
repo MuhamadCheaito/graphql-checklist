@@ -47,6 +47,7 @@ const DELETE_TODO = gql`
 
 function App() {
   const {data, loading, error} = useQuery(GET_TODOS)
+  console.log(process.env.REACT_APP_HASURA_ADMIN_KEY);
   const [todoText, setTodoText] = useState("");
   const [toggleTodo] = useMutation(TOGGLE_TODO)
   const [addTodo] = useMutation(ADD_TODO, {
