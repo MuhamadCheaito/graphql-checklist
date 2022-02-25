@@ -53,7 +53,6 @@ function App() {
     onCompleted: () => setTodoText('')
   })
   const [deleteTodo] = useMutation(DELETE_TODO)
-
   async function handleDeleteTodo({id}){
     const isConfirmed = window.confirm("Do you want to delete this todo? ")
     if(isConfirmed){
@@ -99,7 +98,8 @@ function App() {
          className="pointer pa2 f3 br3 bg-green white bn" type="submit">Create</button>
       </form>
     <div className="flex items-center justify-center flex-column">
-    {data.todos.map(todo =>(
+    { data.todos.length ?
+    data.todos.map(todo =>(
       <p onDoubleClick={() => handleToggleTodo(todo)} key={todo.id}>
         <span className={`pointer list pa1 f3 ${todo.done && 'strike'}`}>
           {todo.text}
@@ -110,7 +110,7 @@ function App() {
           </span>
         </button>
       </p>
-      ))
+      )) : <p>There is no todos yet!! 😅</p>
     }
     </div>
     </div>
